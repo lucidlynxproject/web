@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PricingComponent } from './components/pricing/pricing.component';
+import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PricingComponent
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,
