@@ -13,5 +13,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRICE_COMPARATOR_WEB_PROD }}'
-          projectId: price-comparator-web-prod
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRICE_COMPARATOR_WEB_STAGE }}'
+          projectId: price-comparator-web-stage

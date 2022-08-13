@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "price-comparator-web-stage",
+    "default": "price-comparator-web-prod",
     "stage": "price-comparator-web-stage",
     "dev": "price-comparator-web-dev",
     "prod": "price-comparator-web-prod"
