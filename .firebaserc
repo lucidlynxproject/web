@@ -1,5 +1,10 @@
 {
   "projects": {
-    "default": "price-comparator-web-dev"
-  }
+    "default": "price-comparator-web-stage",
+    "stage": "price-comparator-web-stage",
+    "dev": "price-comparator-web-dev",
+    "prod": "price-comparator-web-prod"
+  },
+  "targets": {},
+  "etags": {}
 }
