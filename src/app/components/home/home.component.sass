@@ -3,21 +3,23 @@
 .background--gradient
   z-index: -10
   position: absolute
-  top: -15%
+  top: -25%
   left: -15%
   rotate: -8deg
   width: 150%
-  height: 111vh
+  min-width: 2000px
+  height: 110vh
+  min-height: 1100px
   background: $main-linear-gradient
 
 .home--container
   height: 90vh
   display: flex
   flex-direction: row
-  justify-content: space-around
+  justify-content: space-between
   align-items: center
   gap: 2rem
-  margin-bottom: 4rem
+  margin-bottom: 3rem
 
 .home--title
   flex: 1
@@ -42,13 +44,17 @@
 .home--placeholder_img
   width: 100%
   min-width: 100px
+  max-width: 500px
+  margin-left: auto
+  margin-right: auto
+  display: block
 
 .home--trusted
   font-size: 0.5rem
   font-weight: bold
   color: $grey-color
   text-align: center
-  margin-bottom: 1rem
+  margin-bottom: 4rem
 
 .home--trusted_companies
   flex-direction: row

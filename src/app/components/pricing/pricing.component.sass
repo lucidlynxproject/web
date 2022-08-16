@@ -21,8 +21,8 @@
     align-items: center
     justify-content: center
     gap: 2rem
-    margin-bottom: 103px
-    margin-top: 184px
+    margin-bottom: 3rem
+    margin-top: 3rem
 
 .card
     display: flex
@@ -30,8 +30,12 @@
     align-items: center
     justify-content: space-between
     width: 350px
+    min-width: 350px
     height: 565px
-    box-shadow: 20px 25px 15px -6px rgba(0,0,0,0.1)
+    box-shadow: 10px 10px 30px 10px rgba(0,0,0,0.1)
+    border-radius: 12px
+    margin-top: 3rem
+    margin-bottom: 3rem
 
 .card-header
     display: flex
@@ -47,13 +51,15 @@
     flex-direction: column
     align-items: center
     gap: 1rem
-    padding: 1rem
+    padding: 3rem
 
 .card-main-price
     font-size: 3rem
     font-weight: bold
 
 .card-footer
+    position: relative
+    bottom: -1px
     height: 70px
     width: 100%
     display: flex
@@ -63,12 +69,14 @@
     background-color: $grey-color
     color: $blue-font-color
     font-weight: 1rem
+    border-bottom-left-radius: 12px
+    border-bottom-right-radius: 12px
 
 .card:hover
     cursor: pointer
     position: relative
     bottom: 50px
-    box-shadow: 25px 30px 15px -6px $purple-color
+    box-shadow: 10px 10px 30px 10px $purple-color
     .card-footer
       background-color: $yellow-color
 
