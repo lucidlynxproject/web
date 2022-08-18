@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackRectangleComponent } from './components/back-rectangle/back-rectangle.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BackRectangleComponent } from './components/back-rectangle/back-rectang
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    BackRectangleComponent
+    BackRectangleComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
