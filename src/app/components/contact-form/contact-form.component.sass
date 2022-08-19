@@ -1,5 +1,5 @@
-
 @import "../../../shared/colors.sass"
+
 .contact--container
   display: flex
   flex-direction: column
@@ -7,14 +7,16 @@
   align-items: center
   justify-content: center
   width: 100%
-  height: 30rem
+  height: 80vh
   margin-bottom: 10vh
+
 .contact--input--container
   display: flex
   flex-direction: column
   gap: 2.5rem
   align-items: center
   justify-content: center
+
 .contact--title
   font-weight: 700
   font-size: 2rem
@@ -27,10 +29,11 @@
   box-sizing: border-box
   padding-left: 1rem
   border: 0px
+
 .contact--input--container button
   bottom: -1px
-  height: 70px
-  width: 100%
+  height: 50px
+  width: 50%
   display: flex
   flex-direction: column
   align-items: center
@@ -40,12 +43,12 @@
   font-weight: 600
   font-size: 16px
   line-height: 24px
-  background-color: $grey-color
-  color: $blue-font-color
-  border-bottom-left-radius: 12px
-  border-bottom-right-radius: 12px
+  color: $black-font-color
+  border-radius: 12px
   border: 0px
+  background: rgba(255, 255, 255, 0.2)
+  backdrop-filter: blur(70px)
+
 .contact--input--container button:hover
-  background-color: $yellow-color
+  background-color:  rgba(255, 255, 255, 0.5)
   cursor: pointer
-  transform: translateY(10px)
