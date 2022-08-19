@@ -1,7 +1,7 @@
 @import "../../../shared/colors.sass"
 
 .navbar
-  font-size: 0.7rem
+  font-size: 1rem
   color: $white-color
   display: flex
   flex-direction: row
@@ -12,9 +12,11 @@
   list-style-type: none
   background-color: transparent
 
+
 .navbar--title
-  font-size: 1.1rem
+  font-size: 2rem
   font-weight: bold
+  color: $black-font-color
 
 .navbar--login
   color: $white-color
@@ -22,6 +24,7 @@
   padding: 0.5rem 4rem
   background: rgba(255, 255, 255, 0.2)
   backdrop-filter: blur(70px)
+  display: none
 
 .navbar--sections
   display: flex
@@ -29,6 +32,9 @@
   justify-content: space-between
   align-items: center
   list-style-type: none
+  gap: 7rem
+  margin-left: 16.3rem
+  
 
 .navbar--sections_link
   color: $white-color
