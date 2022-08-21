@@ -1,9 +1,18 @@
-<canvas class="background--gradient"></canvas>
+<canvas class="background--layer_one"></canvas>
 <app-navbar></app-navbar>
 <div class="home--container">
   <div class="home--title">
-    <h1 class="home--title_main">Find the best prices.</h1>
-    <h6 class="home--title_subtitle">Food market price data</h6>
+    <ngx-typed-js
+      [typeSpeed]="60"
+      [loop]="true"
+      [showCursor]="false"
+      [backDelay]="2500"
+      [backSpeed]="40"
+      [strings]="['Find/', 'Compare/', 'Predict/', 'Analyze/', 'Improve/']"
+    >
+      <h1 class="home--title_main">><span class="typing"> </span></h1>
+      <h1 class="home--title_main fixed--text">grocery store prices.</h1>
+    </ngx-typed-js>
   </div>
   <div class="home--placeholder">
     <img class="home--placeholder_img" src="../../../assets/undraw_credit_card_re_blml.svg" alt="placeholder">
