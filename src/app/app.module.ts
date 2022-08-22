@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BackRectangleComponent } from './components/back-rectangle/back-rectangle.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -14,6 +18,10 @@ import { HomeComponent } from './components/home/home.component';
     PricingComponent,
     NavbarComponent,
     HomeComponent,
+    CountdownComponent,
+    FooterComponent,
+    BackRectangleComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
