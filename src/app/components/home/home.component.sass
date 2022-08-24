@@ -1,16 +1,17 @@
 @import "../../../shared/colors.sass"
 
-.background--gradient
+.background--layer_one
   z-index: -10
   position: absolute
   top: -25%
   left: -15%
   rotate: -5deg
   width: 150%
-  min-width: 2000px
+  min-width: 150%
   height: 110vh
-  min-height: 1100px
+  min-height: 120vh
   background: $main-linear-gradient
+  filter: blur(25px)
 
 .home--container
   height: 90vh
@@ -32,8 +33,9 @@
   font-weight: bold
   color: $white-color
   text-align: left
-  margin-bottom: 1rem
+  margin-bottom: 0
   padding-right: 2rem
+  line-height: 3.5rem
 
 .home--title_subtitle
   font-size: 1rem
@@ -66,3 +68,16 @@
   font-family: 'Roboto'
   font-weight: bold
   text-align: center
+
+@media screen and (max-width: 768px)
+  .home--container
+    flex-direction: column
+    padding-top: 10rem
+  .home--placeholder
+    display: none
+  .home--title_main
+    margin-bottom: 0
+    font-size: 3rem
+    line-height: 3.3rem
+  .home--trusted
+    padding-top: 2rem

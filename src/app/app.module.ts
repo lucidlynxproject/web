@@ -10,7 +10,10 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackRectangleComponent } from './components/back-rectangle/back-rectangle.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,15 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     CountdownComponent,
     FooterComponent,
     BackRectangleComponent,
-    ContactFormComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule,
+    NgxTypedJsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

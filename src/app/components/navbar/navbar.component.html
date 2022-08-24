@@ -1,6 +1,21 @@
 <nav>
   <ul class="navbar">
     <li><p class="navbar--title item">Price Comparator.</p></li>
+    <div class="navbar--responsive--menu">
+      <button class="navbar--responsive--menu_button" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="navbar--responsive--menu_icon">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item href="#pricing">
+          <mat-icon>attach_money</mat-icon>
+          <span>Pricing</span>
+        </a>
+        <a mat-menu-item href="#contact">
+          <mat-icon>call</mat-icon>
+          <span>Contact</span>
+        </a>
+      </mat-menu>
+    </div>
     <ul class="navbar--sections item">
       <li><a class="navbar--sections_link" href="#pricing">Pricing</a></li>
       <!-- <li><a class="navbar--sections_link">Documentation</a></li> -->
