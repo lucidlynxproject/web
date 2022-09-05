@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     CountdownComponent,
     FooterComponent,
     BackRectangleComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
