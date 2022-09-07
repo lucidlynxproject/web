@@ -16,6 +16,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ResetPasswordEmailComponent } from './components/reset-password-email/reset-password-email.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { TokenComponent } from './components/token/token.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { RegisterComponent } from './components/register/register.component';
     BackRectangleComponent,
     ContactFormComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResetPasswordEmailComponent,
+    NewPasswordComponent,
+    TokenComponent
   ],
   imports: [
     BrowserModule,
