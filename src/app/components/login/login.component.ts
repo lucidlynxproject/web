@@ -1,21 +1,23 @@
-import { formatCurrency } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginResponse } from 'src/app/models/interfaces/LoginResponse.interface';
 import { User } from 'src/app/models/User';
+import { StateService } from 'src/app/services/state.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router, private authService: AuthService) {}
-
-  ngOnInit(): void {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private stateService: StateService
+  ) {}
 
   public async onSubmit(): Promise<void> {
     try {
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
         const { user, token } = response.data as LoginResponse;
         user.authToken = token;
         const currentUser = new User(user);
+        this.stateService.currentUser.next(currentUser);
         this.authService.storageUserOnLocalStorage(currentUser);
         this.router.navigate(['/token']);
       }

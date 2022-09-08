@@ -7,12 +7,11 @@ import { ApiService } from './api.service';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../models/User';
 import { Buffer } from 'buffer';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  authPath = '/api/auth';
+  authPath = 'api/auth';
   private readonly USER_CREDENTIAL_KEY = 'userCredentials';
   private readonly USER_KEY = 'user';
 
@@ -20,12 +19,12 @@ export class AuthService {
 
   loginUser(email: string, password: string): Promise<any> {
     const body = { email, password };
-    return this.api.post('api/auth/login', body);
+    return this.api.post(`${this.authPath}/login`, body);
   }
 
   registerUser(email: string, password: string): Promise<any> {
     const body = { email, password };
-    return this.api.post('api/auth/register', body);
+    return this.api.post(`${this.authPath}/register`, body);
   }
 
   sendResetPasswordEmail(email: string): Promise<ApiResponse> {
@@ -69,14 +68,14 @@ export class AuthService {
   }
 
   getUserCredentials(): UserCredentials {
-    const userCredentialsOnSorage =
+    const userCredentialsOnStorage =
       localStorage.getItem(this.USER_CREDENTIAL_KEY) ?? '{}';
     const userCredentials = JSON.parse(
-      userCredentialsOnSorage
+      userCredentialsOnStorage
     ) as UserCredentials;
     const { password } = userCredentials;
     if (password) {
-      userCredentials.password = atob(password);
+      userCredentials.password = Buffer.from(password, 'base64').toString();
     }
     return userCredentials;
   }

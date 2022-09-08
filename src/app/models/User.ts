@@ -6,7 +6,7 @@ export class User {
   authToken?: string = '';
   refreshToken?: string = '';
   recoveryToken?: string = '';
-  username?: string = '';
+  apiToken?: string = '';
 
   constructor(user?: User) {
     if (user) {
@@ -17,7 +17,7 @@ export class User {
       this.authToken = user.authToken;
       this.refreshToken = user.refreshToken;
       this.recoveryToken = user.recoveryToken;
-      this.username = user.username;
+      this.apiToken = user.apiToken;
     }
   }
 }
