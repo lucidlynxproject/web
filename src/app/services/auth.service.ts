@@ -7,6 +7,7 @@ import { ApiService } from './api.service';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../models/User';
 import { Buffer } from 'buffer';
+import { StateService } from './state.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,25 +16,29 @@ export class AuthService {
   private readonly USER_CREDENTIAL_KEY = 'userCredentials';
   private readonly USER_KEY = 'user';
 
-  constructor(private http: HttpClient, private api: ApiService) {}
+  constructor(
+    private http: HttpClient,
+    private api: ApiService,
+    private stateService: StateService
+  ) {}
 
-  loginUser(email: string, password: string): Promise<any> {
+  public loginUser(email: string, password: string): Promise<any> {
     const body = { email, password };
     return this.api.post(`${this.authPath}/login`, body);
   }
 
-  registerUser(email: string, password: string): Promise<any> {
+  public registerUser(email: string, password: string): Promise<any> {
     const body = { email, password };
     return this.api.post(`${this.authPath}/register`, body);
   }
 
-  sendResetPasswordEmail(email: string): Promise<ApiResponse> {
+  public sendResetPasswordEmail(email: string): Promise<ApiResponse> {
     const url = `${environment.apiUrl}${this.authPath}/request_reset_password`;
     const body = { email };
     return firstValueFrom(this.http.post<ApiResponse>(url, body));
   }
 
-  resetForgottenPassword(
+  public resetForgottenPassword(
     token: string,
     newPassword: string
   ): Promise<ApiResponse> {
@@ -42,11 +47,11 @@ export class AuthService {
     return firstValueFrom(this.http.post<ApiResponse>(url, body));
   }
 
-  storageUserOnLocalStorage(user: User): void {
+  public storageUserOnLocalStorage(user: User): void {
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 
-  storeUserCredentials(
+  public storeUserCredentials(
     email: string,
     password: string,
     rememberPassword: string
@@ -59,7 +64,7 @@ export class AuthService {
     localStorage.setItem(this.USER_CREDENTIAL_KEY, JSON.stringify(credentials));
   }
 
-  getUserFromLocalStorage(): User | null {
+  public getUserFromLocalStorage(): User | null {
     const user = localStorage.getItem(this.USER_KEY);
     if (user) {
       return JSON.parse(user);
@@ -67,7 +72,7 @@ export class AuthService {
     return null;
   }
 
-  getUserCredentials(): UserCredentials {
+  public getUserCredentials(): UserCredentials {
     const userCredentialsOnStorage =
       localStorage.getItem(this.USER_CREDENTIAL_KEY) ?? '{}';
     const userCredentials = JSON.parse(
@@ -78,5 +83,12 @@ export class AuthService {
       userCredentials.password = Buffer.from(password, 'base64').toString();
     }
     return userCredentials;
+  }
+  public logOut() {
+    this.removeUserFormLocalStorage();
+    this.stateService.currentUser.next(null);
+  }
+  private removeUserFormLocalStorage(): void {
+    localStorage.removeItem(this.USER_KEY);
   }
 }

@@ -13,6 +13,9 @@
           <span>Login</span>
         </a>
         <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
+          <span>Welcome {{this.userLogged.email}}</span>
+        </a>
+        <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
           <mat-icon>vpn_key</mat-icon>
           <span>API Token</span>
         </a>
@@ -28,14 +31,37 @@
           <mat-icon>menu_book</mat-icon>
           <span>Documentation</span>
         </a>
+        <a *ngIf="this.userLogged" mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </a>
       </mat-menu>
     </div>
     <ul class="navbar--sections item">
       <li><a class="navbar--sections_link" href="home/#pricing">Pricing</a></li>
-      <li><a class="navbar--sections_link" href="#">Documentation</a></li>
+      <li><a class="navbar--sections_link" href="/">Documentation</a></li>
       <li><a class="navbar--sections_link" href="home/#contact">Contact</a></li>
     </ul>
     <li><a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login">Login ></a></li>
-    <li><a *ngIf="this.userLogged" class="navbar--login item" routerLink="/token">API Token ></a></li>
+    <li>
+      <a *ngIf="this.userLogged" class="navbar--login item" [matMenuTriggerFor]="menuDesktop">Welcome</a>
+      <mat-menu #menuDesktop="matMenu">
+        <a *ngIf="!this.userLogged" mat-menu-item routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </a>
+        <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
+          <span>{{this.userLogged.email}}</span>
+        </a>
+        <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
+          <mat-icon>vpn_key</mat-icon>
+          <span>API Token</span>
+        </a>
+        <a *ngIf="this.userLogged" mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </a>
+      </mat-menu>
+    </li>
   </ul>
 </nav>
