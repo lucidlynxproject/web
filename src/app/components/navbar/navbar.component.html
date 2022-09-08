@@ -1,26 +1,37 @@
 <nav>
   <ul class="navbar">
-    <li><p class="navbar--title item">Price Comparator.</p></li>
+    <li>
+      <p class="navbar--title item">Price Comparator.</p>
+    </li>
     <div class="navbar--responsive--menu">
       <button class="navbar--responsive--menu_button" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon class="navbar--responsive--menu_icon">menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item href="#pricing">
+        <!-- Cuando el usuario está logeado, tenemos botón que nos lleve al token -->
+        <a mat-menu-item routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </a>
+        <a mat-menu-item href="home/#pricing">
           <mat-icon>attach_money</mat-icon>
           <span>Pricing</span>
         </a>
-        <a mat-menu-item href="#contact">
+        <a mat-menu-item href="home/#contact">
           <mat-icon>call</mat-icon>
           <span>Contact</span>
+        </a>
+        <a mat-menu-item href="#">
+          <mat-icon>menu_book</mat-icon>
+          <span>Documentation</span>
         </a>
       </mat-menu>
     </div>
     <ul class="navbar--sections item">
-      <li><a class="navbar--sections_link" href="#pricing">Pricing</a></li>
-      <!-- <li><a class="navbar--sections_link">Documentation</a></li> -->
-      <li><a class="navbar--sections_link" href="#contact">Contact</a></li>
+      <li><a class="navbar--sections_link" href="home/#pricing">Pricing</a></li>
+      <li><a class="navbar--sections_link" href="#">Documentation</a></li>
+      <li><a class="navbar--sections_link" href="home/#contact">Contact</a></li>
     </ul>
-    <li><a class="navbar--login item" href="#">Login</a></li>
+    <li><a class="navbar--login item" routerLink="/login">Login ></a></li>
   </ul>
 </nav>

@@ -16,9 +16,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ResetPasswordEmailComponent } from './components/reset-password-email/reset-password-email.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { TokenComponent } from './components/token/token.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { RecoverPasswordPageComponent } from './pages/recover-password-page/recover-password-page.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,9 +38,13 @@ import { TokenComponent } from './components/token/token.component';
     ContactFormComponent,
     LoginComponent,
     RegisterComponent,
-    ResetPasswordEmailComponent,
+    ResetPasswordComponent,
     NewPasswordComponent,
-    TokenComponent
+    TokenComponent,
+    HomePageComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    RecoverPasswordPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +52,11 @@ import { TokenComponent } from './components/token/token.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
-    NgxTypedJsModule
+    NgxTypedJsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
