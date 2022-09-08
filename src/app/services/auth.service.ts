@@ -23,6 +23,11 @@ export class AuthService {
     return this.api.post('api/auth/login', body);
   }
 
+  registerUser(email: string, password: string): Promise<any> {
+    const body = { email, password };
+    return this.api.post('api/auth/register', body);
+  }
+
   sendResetPasswordEmail(email: string): Promise<ApiResponse> {
     const url = `${environment.apiUrl}${this.authPath}/request_reset_password`;
     const body = { email };

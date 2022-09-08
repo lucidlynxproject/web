@@ -3,36 +3,19 @@
     <div id="card-title">
       <h2>WELCOME</h2>
     </div>
-    <form method="post" class="form">
+    <form #signinForm="ngForm" class="form" (ngSubmit)="onSubmit()">
       <label for="user-email"> Email </label>
-      <input
-        id="user-email"
-        class="form-content"
-        type="email"
-        name="email"
-        autocomplete="on"
-        required
-      />
+      <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" [(ngModel)]="email"
+        required />
       <div class="form-border"></div>
       <label for="user-password" style="padding-top: 22px"> Password </label>
-      <input
-        id="user-password"
-        class="form-content"
-        type="password"
-        name="password"
-        required
-      />
+      <input id="user-password" class="form-content" type="password" name="password" [(ngModel)]="password" required />
       <div class="form-border"></div>
       <label for="user-password" style="padding-top: 22px">
         Confirm Password
       </label>
-      <input
-        id="user-password"
-        class="form-content"
-        type="password"
-        name="password"
-        required
-      />
+      <input id="user-password" class="form-content" type="password" name="password" [(ngModel)]="passwordConfirmation"
+        required />
       <div class="form-border"></div>
       <input id="submit-btn" type="submit" name="submit" value="Sign up" />
     </form>
