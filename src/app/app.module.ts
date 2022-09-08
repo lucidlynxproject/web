@@ -25,6 +25,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { RecoverPasswordPageComponent } from './pages/recover-password-page/recover-password-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPageComponent,
     RegisterPageComponent,
     RecoverPasswordPageComponent,
+    RestorePasswordPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,9 +33,9 @@ export class AuthService {
   }
 
   public sendResetPasswordEmail(email: string): Promise<ApiResponse> {
-    const url = `${environment.apiUrl}${this.authPath}/request_reset_password`;
+    const url = `${environment.apiUrl}/${this.authPath}/request_reset_password`;
     const body = { email };
-    return firstValueFrom(this.http.post<ApiResponse>(url, body));
+    return this.api.post(`${this.authPath}/request_reset_password`, body);
   }
 
   public resetForgottenPassword(

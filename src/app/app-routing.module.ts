@@ -1,4 +1,3 @@
-import { getLocaleMonthNames } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TokenComponent } from './components/token/token.component';
@@ -7,7 +6,10 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RecoverPasswordPageComponent } from './pages/recover-password-page/recover-password-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthTokenGuard } from './guards/auth-token.guard';
+import { AuthTokenResolver } from './resolvers/auth-token.resolver';
 import { AppComponent } from './app.component';
+import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,12 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'recover-password', component: RecoverPasswordPageComponent },
+  {
+    path: 'change-password',
+    component: RestorePasswordPageComponent,
+    canActivate: [AuthTokenGuard],
+    resolve: { token: AuthTokenResolver },
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
