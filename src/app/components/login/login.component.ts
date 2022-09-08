@@ -31,7 +31,7 @@ export class LoginComponent {
         const currentUser = new User(user);
         this.stateService.currentUser.next(currentUser);
         this.authService.storageUserOnLocalStorage(currentUser);
-        this.router.navigate(['/token']);
+        this.router.navigate(['/home']);
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {

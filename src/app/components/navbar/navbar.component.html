@@ -8,10 +8,13 @@
         <mat-icon class="navbar--responsive--menu_icon">menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <!-- Cuando el usuario está logeado, tenemos botón que nos lleve al token -->
-        <a mat-menu-item routerLink="/login">
+        <a *ngIf="!this.userLogged" mat-menu-item routerLink="/login">
           <mat-icon>login</mat-icon>
           <span>Login</span>
+        </a>
+        <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
+          <mat-icon>vpn_key</mat-icon>
+          <span>API Token</span>
         </a>
         <a mat-menu-item href="home/#pricing">
           <mat-icon>attach_money</mat-icon>
@@ -32,6 +35,7 @@
       <li><a class="navbar--sections_link" href="#">Documentation</a></li>
       <li><a class="navbar--sections_link" href="home/#contact">Contact</a></li>
     </ul>
-    <li><a class="navbar--login item" routerLink="/login">Login ></a></li>
+    <li><a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login">Login ></a></li>
+    <li><a *ngIf="this.userLogged" class="navbar--login item" routerLink="/token">API Token ></a></li>
   </ul>
 </nav>
