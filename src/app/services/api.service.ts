@@ -40,7 +40,6 @@ export class ApiService {
     params?: any
   ): Promise<any> {
     try {
-      console.log(body);
       return await firstValueFrom(
         this.http
           .post<T>(`${ApiService.apiUrl}/${url}`, body, {

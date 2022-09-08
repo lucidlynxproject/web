@@ -55,6 +55,14 @@ export class AuthService {
     localStorage.setItem(this.USER_CREDENTIAL_KEY, JSON.stringify(credentials));
   }
 
+  getUserFromLocalStorage(): User | null {
+    const user = localStorage.getItem(this.USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+    return null;
+  }
+
   getUserCredentials(): UserCredentials {
     const userCredentialsOnSorage =
       localStorage.getItem(this.USER_CREDENTIAL_KEY) ?? '{}';
