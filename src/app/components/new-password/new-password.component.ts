@@ -20,7 +20,7 @@ export class NewPasswordComponent implements OnInit {
 
   public async onSubmit(): Promise<any> {
     try {
-      const response = await this.authService.resetForgottenPassword(
+      await this.authService.resetForgottenPassword(
         this.recoveryToken,
         this.passwordConfirmation
       );

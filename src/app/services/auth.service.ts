@@ -42,7 +42,7 @@ export class AuthService {
     token: string,
     newPassword: string
   ): Promise<ApiResponse> {
-    const url = `${environment.apiUrl}${this.authPath}/reset_forgot_password`;
+    const url = `${environment.apiUrl}/${this.authPath}/reset_forgot_password`;
     const body = { token, newPassword };
     return firstValueFrom(this.http.post<ApiResponse>(url, body));
   }
