@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-password',
@@ -12,7 +13,7 @@ export class NewPasswordComponent implements OnInit {
   passwordConfirmation: string = '';
   recoveryToken: string;
 
-  constructor(private authService: AuthService, private route: ActivatedRoute) {
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router,) {
     this.recoveryToken = this.route.snapshot.data.token;
   }
 
@@ -23,7 +24,8 @@ export class NewPasswordComponent implements OnInit {
       await this.authService.resetForgottenPassword(
         this.recoveryToken,
         this.passwordConfirmation
-      );
+      )
+      this.router.navigate(['/reset-password-done']);;
     } catch (error) {
       console.log(error);
     }
