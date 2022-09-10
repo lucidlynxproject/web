@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 import { ResetPasswordDoneComponent } from './components/reset-password-done/reset-password-done.component';
+import { EmailSentComponent } from './components/email-sent/email-sent.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ResetPasswordDoneComponent } from './components/reset-password-done/res
     RecoverPasswordPageComponent,
     RestorePasswordPageComponent,
     ResetPasswordDoneComponent,
+    EmailSentComponent,
   ],
   imports: [
     BrowserModule,
