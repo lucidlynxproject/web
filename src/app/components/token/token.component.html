@@ -1,14 +1,9 @@
-<div id="card">
-  <div id="card-content">
-    <div id="card-title">
-      <h2>Your token is</h2>
-    </div>
-    <div class="token-key">
-      <div>{{this.currentToken}}</div>
-      <div class="form-border"></div>
-      <button id="submit-btn" type="submit" name="submit" (click)="generateApiToken()">
-        {{!this.currentToken ? "Generate token" : "Refresh token"}}
-      </button>
-    </div>
+<div class="card">
+  <div class="card-title">
+    <h2>Your token is</h2>
+    <p class="token-key">{{this.currentToken}}</p>
+    <button id="submit-btn" type="submit" name="submit" (click)="generateApiToken()">
+      {{!this.currentToken ? "Generate token" : "Refresh token"}}
+    </button>
   </div>
 </div>
