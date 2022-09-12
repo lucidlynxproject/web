@@ -5,6 +5,7 @@ import { LoginResponse } from 'src/app/models/interfaces/LoginResponse.interface
 import { User } from 'src/app/models/User';
 import { StateService } from 'src/app/services/state.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

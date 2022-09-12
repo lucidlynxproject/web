@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PricingComponent } from './components/pricing/pricing.component';
@@ -26,6 +25,8 @@ import { RecoverPasswordPageComponent } from './pages/recover-password-page/reco
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
+import { ResetPasswordDoneComponent } from './components/reset-password-done/reset-password-done.component';
+import { EmailSentComponent } from './components/email-sent/email-sent.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,8 @@ import { RestorePasswordPageComponent } from './pages/restore-password-page/rest
     RegisterPageComponent,
     RecoverPasswordPageComponent,
     RestorePasswordPageComponent,
+    ResetPasswordDoneComponent,
+    EmailSentComponent,
   ],
   imports: [
     BrowserModule,

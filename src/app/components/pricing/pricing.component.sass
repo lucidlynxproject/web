@@ -1,7 +1,7 @@
 @import "../../../shared/colors.sass"
 
 .pricing--container
-    margin-top: 300px
+    margin-top: 13rem
     margin-bottom: 300px
 
 .title
@@ -31,7 +31,7 @@
     justify-content: space-between
     width: 350px
     min-width: 350px
-    height: 500px
+    height: 550px
     box-shadow: 10px 10px 30px 5px rgba(0,0,0,0.1)
     border-radius: 12px
     margin-top: 3rem
@@ -89,10 +89,12 @@
 
 li
   padding-bottom: 1rem
-
-@media screen and (max-width: 768px)
+@media screen and ( max-width: 1025px )
+    .pricing--container
+        margin-top: 25rem
+@media screen and (max-width: 930px)
   .pricing--container
-    margin-top: 10rem
+    margin-top: 18rem
     margin-bottom: 10rem
   .card-container
     flex-direction: column
@@ -107,5 +109,6 @@ li
     font-weight: bold
     margin-top: 1rem
 
+.lift
 
 

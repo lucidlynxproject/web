@@ -22,7 +22,9 @@ export class ResetPasswordComponent implements OnInit {
     try {
       const response = await this.authService.sendResetPasswordEmail(
         this.email
+        
       );
+      this.router.navigate(['/email-sent']);
     } catch (error: any) {
       throw new Error(`Error on sending email: ${error}`);
     }

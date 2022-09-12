@@ -1,10 +1,14 @@
 <nav>
-  <ul class="navbar">
+  <div class="navbar">
     <li>
-      <p class="navbar--title item">Price Comparator.</p>
+      <p class="navbar--title item">Price Analytics.</p>
     </li>
     <div class="navbar--responsive--menu">
-      <button class="navbar--responsive--menu_button" mat-icon-button [matMenuTriggerFor]="menu">
+      <button
+        class="navbar--responsive--menu_button"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+      >
         <mat-icon class="navbar--responsive--menu_icon">menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -13,7 +17,7 @@
           <span>Login</span>
         </a>
         <a *ngIf="this.userLogged" mat-menu-item>
-          <span>Welcome {{this.userLogged.email}}</span>
+          <span>Welcome {{ this.userLogged.email }}</span>
         </a>
         <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
           <mat-icon>vpn_key</mat-icon>
@@ -37,21 +41,34 @@
         </a>
       </mat-menu>
     </div>
-    <ul class="navbar--sections item">
-      <li><a class="navbar--sections_link" href="home/#pricing">Pricing</a></li>
-      <li><a class="navbar--sections_link" href="/">Documentation</a></li>
-      <li><a class="navbar--sections_link" href="home/#contact">Contact</a></li>
-    </ul>
-    <li><a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login">Login ></a></li>
+    <div class="navbar--sections item">
+      <div>
+        <a class="navbar--sections_link" href="home/#pricing">Pricing</a>
+      </div>
+      <div><a class="navbar--sections_link" href="/">Documentation</a></div>
+      <div>
+        <a class="navbar--sections_link" href="home/#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login"
+        >Login ></a
+      >
+    </div>
     <li>
-      <a *ngIf="this.userLogged" class="navbar--login item" [matMenuTriggerFor]="menuDesktop">Welcome</a>
+      <a
+        *ngIf="this.userLogged"
+        class="navbar--login item"
+        [matMenuTriggerFor]="menuDesktop"
+        >Welcome</a
+      >
       <mat-menu #menuDesktop="matMenu">
         <a *ngIf="!this.userLogged" mat-menu-item routerLink="/login">
           <mat-icon>login</mat-icon>
           <span>Login</span>
         </a>
         <a *ngIf="this.userLogged" mat-menu-item>
-          <span>{{this.userLogged.email}}</span>
+          <span>{{ this.userLogged.email }}</span>
         </a>
         <a *ngIf="this.userLogged" mat-menu-item routerLink="/token">
           <mat-icon>vpn_key</mat-icon>
@@ -63,5 +80,5 @@
         </a>
       </mat-menu>
     </li>
-  </ul>
+  </div>
 </nav>
