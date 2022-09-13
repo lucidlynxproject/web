@@ -44,7 +44,7 @@ export class RegisterComponent {
         }
       } catch (error: any) {
         if (error.error.status === 400 && error.error.text === "User is already registered with that email") {
-          this.errorMessage = error.error.text
+          this.errorMessage = "Invalid Email"
         } else {
           throw new Error(`Error on login user: ${error}`);
         }
