@@ -12,12 +12,14 @@ import { StateService } from 'src/app/services/state.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-
+  errorMessage : string = ""
   constructor(
     private router: Router,
     private authService: AuthService,
     private stateService: StateService
   ) {}
+  
+  
 
   public async onSubmit(): Promise<void> {
     try {
@@ -35,15 +37,16 @@ export class LoginComponent {
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {
-        //TODO: show error message on form
+        return this.errorMessage = error.error.text
       } else if (
         error.error.status === 400 &&
         error.error.text === 'Wrong credentials'
       ) {
-        //TODO: show error message on form
+        return this.errorMessage = error.error.text
       } else {
         throw new Error(`Error on login user: ${error}`);
       }
     }
   }
+  
 }
