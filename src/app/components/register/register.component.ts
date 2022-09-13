@@ -15,41 +15,43 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   passwordConfirmation: string = '';
- 
+  errorMessage: string = ""
+
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private stateService: StateService
-  ) {}
+  ) { }
 
-  public async onSubmit(): Promise<void> {
-    try {
-      const response = await this.authService.registerUser(
-        this.email,
-        this.password
-      );
-      if (response.status === 200) {
-        const { user, token } = response.data as LoginResponse;
-        user.authToken = token;
-        const currentUser = new User(user);
-        this.stateService.currentUser.next(currentUser);
-        this.authService.storageUserOnLocalStorage(currentUser);
-        //TODO: Maybe we should add a welcome screen
-        this.router.navigate(['/token']);
+  public valid = true
+
+  public async onSubmit(): Promise<any> {
+    if (this.password == this.passwordConfirmation && this.password.length >= 8) {
+      try {
+        const response = await this.authService.registerUser(
+          this.email,
+          this.password
+        );
+        if (response.status === 200) {
+          const { user, token } = response.data as LoginResponse;
+          user.authToken = token;
+          const currentUser = new User(user);
+          this.stateService.currentUser.next(currentUser);
+          this.authService.storageUserOnLocalStorage(currentUser);
+          //TODO: Maybe we should add a welcome screen
+          this.router.navigate(['/token']);
+        }
+      } catch (error: any) {
+        if (error.error.status === 400 && error.error.text === "User is already registered with that email") {
+          this.errorMessage = error.error.text
+        } else {
+          throw new Error(`Error on login user: ${error}`);
+        }
       }
-    } catch (error: any) {
-      if (error.error.status === 400 && error.error.text === 'User not found') {
-        //Fix: backend is not sending the correct error
-      } else if (
-        error.error.status === 400 &&
-        error.error.text === 'Wrong credentials'
-        //Fix: backend is not sending the correct error
-      ) {
-        
-      } else {
-        throw new Error(`Error on login user: ${error}`);
-      }
+    } else {
+      return this.valid = false
     }
   }
 }
+

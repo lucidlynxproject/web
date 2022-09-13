@@ -36,12 +36,12 @@ export class LoginComponent {
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {
-        return this.errorMessage = error.error.text
+        this.errorMessage = error.error.text
       } else if (
         error.error.status === 400 &&
         error.error.text === 'Wrong credentials'
       ) {
-        return this.errorMessage = error.error.text
+         this.errorMessage = error.error.text
       } else {
         throw new Error(`Error on login user: ${error}`);
       }
