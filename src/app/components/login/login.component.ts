@@ -36,7 +36,7 @@ export class LoginComponent {
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {
-        return this.errorMessage = error.error.text
+        this.errorMessage = "Invalid Email"
       } else if (
         error.error.status === 400 &&
         error.error.text === 'Wrong credentials'

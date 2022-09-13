@@ -39,7 +39,8 @@ export class RegisterComponent {
         this.router.navigate(['/token']);
       }
     } catch (error: any) {
-      if (error.error.status === 400 && error.error.text === 'User not found') {
+      if (error.error.status === 400 && error.error.text === 'User is already registered with that email') {
+      
         //Fix: backend is not sending the correct error
       } else if (
         error.error.status === 400 &&
