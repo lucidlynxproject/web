@@ -19,7 +19,10 @@ export class NewPasswordComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  public valid = true
+
   public async onSubmit(): Promise<any> {
+    if(this.password==this.passwordConfirmation && this.password.length>=8){
     try {
       await this.authService.resetForgottenPassword(
         this.recoveryToken,
@@ -29,5 +32,7 @@ export class NewPasswordComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
-  }
+  }else{
+    return this.valid = false
+  }}
 }
