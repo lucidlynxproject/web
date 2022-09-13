@@ -13,13 +13,12 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   errorMessage : string = ""
+
   constructor(
     private router: Router,
     private authService: AuthService,
     private stateService: StateService
   ) {}
-  
-  
 
   public async onSubmit(): Promise<void> {
     try {
@@ -48,5 +47,4 @@ export class LoginComponent {
       }
     }
   }
-  
 }

@@ -15,6 +15,7 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   passwordConfirmation: string = '';
+ 
 
   constructor(
     private router: Router,
@@ -39,12 +40,13 @@ export class RegisterComponent {
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {
-        //TODO: show error message on form
+        //Fix: backend is not sending the correct error
       } else if (
         error.error.status === 400 &&
         error.error.text === 'Wrong credentials'
+        //Fix: backend is not sending the correct error
       ) {
-        //TODO: show error message on form
+        
       } else {
         throw new Error(`Error on login user: ${error}`);
       }
