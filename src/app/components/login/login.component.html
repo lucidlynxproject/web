@@ -11,6 +11,7 @@
       <label for="user-password" style="padding-top: 22px"> Password </label>
       <input id="user-password" class="form-content" type="password" name="password" [(ngModel)]="password" required />
       <div class="form-border"></div>
+      <div class="error">{{errorMessage}}</div>
       <button id="submit-btn" type="submit" name="submit">Submit</button>
       <a routerLink="/register" id="signup">Don't have account yet?</a>
       <a routerLink="/recover-password" id="signup">Forgot your password?</a>
