@@ -12,7 +12,7 @@ import { StateService } from 'src/app/services/state.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-  errorMessage : string = ""
+  errorMessage: string = '';
 
   constructor(
     private router: Router,
@@ -32,16 +32,16 @@ export class LoginComponent {
         const currentUser = new User(user);
         this.stateService.currentUser.next(currentUser);
         this.authService.storageUserOnLocalStorage(currentUser);
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
       }
     } catch (error: any) {
       if (error.error.status === 400 && error.error.text === 'User not found') {
-        this.errorMessage = "Invalid Email"
+        this.errorMessage = 'Invalid Email';
       } else if (
         error.error.status === 400 &&
         error.error.text === 'Wrong credentials'
       ) {
-         this.errorMessage = error.error.text
+        this.errorMessage = error.error.text;
       } else {
         throw new Error(`Error on login user: ${error}`);
       }
