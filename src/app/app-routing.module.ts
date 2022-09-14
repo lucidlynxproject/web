@@ -16,7 +16,7 @@ import { ResetPasswordDoneComponent } from './components/reset-password-done/res
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: HomePageComponent,
     canActivateChild: [AuthGuard],
     children: [{ path: 'token', component: TokenComponent }],
   },
@@ -24,8 +24,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'recover-password', component: RecoverPasswordPageComponent },
-  {path:'email-sent', component: EmailSentComponent},
-  {path:'reset-password-done' , component: ResetPasswordDoneComponent},
+  { path: 'email-sent', component: EmailSentComponent },
+  { path: 'reset-password-done', component: ResetPasswordDoneComponent },
   {
     path: 'change-password',
     component: RestorePasswordPageComponent,
@@ -33,7 +33,6 @@ const routes: Routes = [
     resolve: { token: AuthTokenResolver },
   },
   { path: '**', redirectTo: 'home' },
-  
 ];
 
 @NgModule({

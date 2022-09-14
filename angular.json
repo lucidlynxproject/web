@@ -69,7 +69,7 @@
                 }
               ]
             },
-            "dev": {
+            "development": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
