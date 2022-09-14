@@ -1,7 +1,7 @@
 <nav>
   <div class="navbar">
     <li>
-      <p class="navbar--title item">Price Analytics.</p>
+      <p class="navbar--title item" routerLink="/home">Price Analytics.</p>
     </li>
     <div class="navbar--responsive--menu">
       <button
@@ -55,7 +55,8 @@
         >Login ></a
       >
     </div>
-    <li>
+    <li style="
+    margin-left: -400px">
       <a
         *ngIf="this.userLogged"
         class="navbar--login item"
