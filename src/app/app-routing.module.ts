@@ -18,7 +18,10 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     canActivateChild: [AuthGuard],
-    children: [{ path: 'token', component: TokenComponent }],
+    children: [
+      { path: '', redirectTo: '/home' },
+      { path: 'token', component: TokenComponent },
+    ],
   },
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
