@@ -11,14 +11,16 @@ import { AuthTokenResolver } from './resolvers/auth-token.resolver';
 import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 import { EmailSentComponent } from './components/email-sent/email-sent.component';
 import { ResetPasswordDoneComponent } from './components/reset-password-done/reset-password-done.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent,
+    component: AppComponent,
     canActivateChild: [AuthGuard],
     children: [{ path: 'token', component: TokenComponent }],
   },
+  { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'recover-password', component: RecoverPasswordPageComponent },
@@ -30,7 +32,7 @@ const routes: Routes = [
     canActivate: [AuthTokenGuard],
     resolve: { token: AuthTokenResolver },
   },
-  { path: '**', component: HomePageComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
