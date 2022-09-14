@@ -19,7 +19,7 @@ const routes: Routes = [
     component: AppComponent,
     canActivateChild: [AuthGuard],
     children: [
-      { path: '', redirectTo: '/home' },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'token', component: TokenComponent },
     ],
   },
