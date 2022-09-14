@@ -32,7 +32,7 @@ const routes: Routes = [
     canActivate: [AuthTokenGuard],
     resolve: { token: AuthTokenResolver },
   },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
