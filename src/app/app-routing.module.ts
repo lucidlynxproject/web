@@ -8,32 +8,34 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { AuthGuard } from './guards/auth.guard';
 import { AuthTokenGuard } from './guards/auth-token.guard';
 import { AuthTokenResolver } from './resolvers/auth-token.resolver';
-import { AppComponent } from './app.component';
 import { RestorePasswordPageComponent } from './pages/restore-password-page/restore-password-page.component';
 import { EmailSentComponent } from './components/email-sent/email-sent.component';
 import { ResetPasswordDoneComponent } from './components/reset-password-done/reset-password-done.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AppComponent,
     canActivateChild: [AuthGuard],
-    children: [{ path: 'token', component: TokenComponent }],
+    children: [
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'token', component: TokenComponent },
+    ],
   },
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'recover-password', component: RecoverPasswordPageComponent },
-  {path:'email-sent', component: EmailSentComponent},
-  {path:'reset-password-done' , component: ResetPasswordDoneComponent},
+  { path: 'email-sent', component: EmailSentComponent },
+  { path: 'reset-password-done', component: ResetPasswordDoneComponent },
   {
     path: 'change-password',
     component: RestorePasswordPageComponent,
     canActivate: [AuthTokenGuard],
     resolve: { token: AuthTokenResolver },
   },
-  { path: '**', redirectTo: 'home' },
-  
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({

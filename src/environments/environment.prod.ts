@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  mode: 'prod',
+  apiUrl: 'https://price-comparator-api-dev.herokuapp.com',
 };

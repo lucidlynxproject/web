@@ -4,11 +4,7 @@
       <p class="navbar--title item" routerLink="/home">Price Analytics.</p>
     </li>
     <div class="navbar--responsive--menu">
-      <button
-        class="navbar--responsive--menu_button"
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-      >
+      <button class="navbar--responsive--menu_button" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon class="navbar--responsive--menu_icon">menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -23,15 +19,15 @@
           <mat-icon>vpn_key</mat-icon>
           <span>API Token</span>
         </a>
-        <a mat-menu-item href="home/#pricing">
+        <a mat-menu-item href="home#pricing">
           <mat-icon>attach_money</mat-icon>
           <span>Pricing</span>
         </a>
-        <a mat-menu-item href="home/#contact">
+        <a mat-menu-item href="home#contact">
           <mat-icon>call</mat-icon>
           <span>Contact</span>
         </a>
-        <a mat-menu-item href="#">
+        <a mat-menu-item href="https://price-comparator-api-dev.herokuapp.com/documentation/" target="_blank">
           <mat-icon>menu_book</mat-icon>
           <span>Documentation</span>
         </a>
@@ -43,25 +39,19 @@
     </div>
     <div class="navbar--sections item">
       <div>
-        <a class="navbar--sections_link" href="home/#pricing">Pricing</a>
+        <a class="navbar--sections_link" href="home#pricing">Pricing</a>
       </div>
-      <div><a class="navbar--sections_link" href="/">Documentation</a></div>
+      <div><a class="navbar--sections_link" href="https://price-comparator-api-dev.herokuapp.com/documentation/"
+          target="_blank">Documentation</a></div>
       <div>
-        <a class="navbar--sections_link" href="home/#contact">Contact</a>
+        <a class="navbar--sections_link" href="home#contact">Contact</a>
       </div>
     </div>
     <div>
-      <a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login"
-        >Login ></a
-      >
+      <a *ngIf="!this.userLogged" class="navbar--login item" routerLink="/login">Login ></a>
     </div>
-    <li class="ajuste">
-      <a
-        *ngIf="this.userLogged"
-        class="navbar--login item"
-        [matMenuTriggerFor]="menuDesktop"
-        >Welcome</a
-      >
+    <li>
+      <a *ngIf="this.userLogged" class="navbar--login item" [matMenuTriggerFor]="menuDesktop">Welcome</a>
       <mat-menu #menuDesktop="matMenu">
         <a *ngIf="!this.userLogged" mat-menu-item routerLink="/login">
           <mat-icon>login</mat-icon>
