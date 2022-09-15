@@ -48,10 +48,11 @@
   text-align: left
 
 .home--placeholder_img
-  padding-top: 10rem
   margin-left: 3rem
-  width: 600px
+  width: 560px
   min-width: 100px
+  position: relative
+  top: 30px
 //   max-width: 350px
 //   margin-left: auto
 //   margin-right: auto
@@ -59,7 +60,7 @@
 
 
 .home--trusted
-  font-size: 1rem
+  font-size: 20px
   font-weight: 700
   color: $black-font-color
   text-align: center
@@ -68,10 +69,10 @@
 
 @media screen and (max-width: 1260px)
   .home--placeholder_img
-    margin-top: 20rem
+    position: relative
+    top: 30px
     margin-left: 5rem
     margin-right: 1rem
-
     width: 400px
     min-width: 100px
 
@@ -89,3 +90,5 @@
     padding-top: 2rem
   .home--tile
     margin-top: 10rem
+  .home--placeholder_img
+    display: none
