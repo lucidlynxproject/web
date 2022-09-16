@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/User';
 import { StateService } from 'src/app/services/state.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +10,7 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class NavbarComponent implements OnInit {
   userLogged?: User | null;
+  documentationUrl = `${environment.apiUrl}/documentation`;
 
   constructor(
     private authService: AuthService,
